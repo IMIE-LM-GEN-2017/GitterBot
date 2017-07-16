@@ -1,0 +1,12 @@
+{
+  "name": "gitterbot",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "bot": "node app.js"
+  },
+  "dependencies": {
+    "node-gitter": "^2.0.5",
+    "twitter": "^1.7.1"
+  }
+}
