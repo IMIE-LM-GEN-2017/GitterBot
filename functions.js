@@ -38,7 +38,7 @@ module.exports = {
       // Demande au bot
       if (config.regexes.botCall.exec(text)) {
         const actions = text.split(' ')
-        if (actions.length === 1) {
+        if (['status', 'trotg', 'help', 'random', 'rm'].indexOf(actions[1]) === -1) {
           this.sendGitterMessage(room, 'Oui @' + sender + ' ? Que veux tu ?')
         } else {
           switch (actions[1]) {
@@ -49,6 +49,17 @@ module.exports = {
               break
             case 'trorg':
               this.sendGitterMessage(room, 'Lien vers les tableaux Trello de la classe : ' + config.links.trelloOrg)
+              break
+            case 'rm':
+              console.log(actions)
+              var prepa = ''
+              var raison = ''
+              if (actions.length >= 4 && actions[2] === '-rf' && /^@/g.exec(actions[3])) {
+                prepa = '\n# Anihilation totale ! Bye ' + actions[3] + ' !\n'
+                actions.splice(0, 4)
+                raison = '\n_' + actions.join(' ') + '_'
+              }
+              this.sendGitterMessage(room, prepa + raison + '\n![rm -rf](' + config.links.boom + ')')
               break
             case 'help':
               this.sendGitterMessage(room, 'Commandes disponibles : **`/bot ...`**\n\n  - `'
@@ -101,6 +112,7 @@ module.exports = {
               return
           }
         }
+
         return
       }
 

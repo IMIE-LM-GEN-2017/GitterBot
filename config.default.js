@@ -20,13 +20,14 @@ module.exports = {
     botPrefix: /^`\[bot\] > `/g,
     greeting: /hello|salut|plop|bonjour|bonsoir/g,
     botCall: /\/bot /g,
-    botStatus: /^\/bot$/g
+    botStatus: /^\/bot$/g,
   },
   links: {
     // Lien vers la page Github de la classe
     gitterOrg: '',
     // Lien vers la page Trello de la classe
-    trelloOrg: ''
+    trelloOrg: '',
+    boom: '',
   },
   // Nom des étudiants
   students: [],
@@ -35,8 +36,8 @@ module.exports = {
     random: {
       students: [],
       current: null,
-      done: []
+      done: [],
     },
-    currentUser: ''
-  }
+    currentUser: '',
+  },
 }
